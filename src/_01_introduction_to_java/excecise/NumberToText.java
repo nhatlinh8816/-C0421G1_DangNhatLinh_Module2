@@ -10,97 +10,174 @@ public class NumberToText {
         int hangtram = number / 100;
         int hangchuc = (number - hangtram * 100) / 10;
         int hangdonvi = (number - hangtram * 100 - hangchuc * 10);
-        switch (hangdonvi){
+        if (number<=12){
+            switch (number){
+                case 0:
+                    System.out.print("Zero ");
+                    break;
+                case 1:
+                    System.out.print("One ");
+                    break;
+                case 2:
+                    System.out.print("Two ");
+                    break;
+                case 3:
+                    System.out.print("Three ");
+                    break;
+                case 4:
+                    System.out.print("Four ");
+                    break;
+                case 5:
+                    System.out.print("Five ");
+                    break;
+                case 6:
+                    System.out.print("Six ");
+                    break;
+                case 7:
+                    System.out.print("Seven ");
+                    break;
+                case 8:
+                    System.out.print("Eight ");
+                    break;
+                case 9:
+                    System.out.print("Nine ");
+                    break;
+                case 10:
+                    System.out.print("Ten ");
+                    break;
+                case 11:
+                    System.out.print("Eleven ");
+                    break;
+                case 12:
+                    System.out.print("Twelve ");
+                    break;
+            }
+        }else if (number<20){
+            switch (number){
+                case 13:
+                    System.out.print("Thirteen ");
+                    break;
+                case 14:
+                    System.out.print("Fourteen ");
+                    break;
+                case 15:
+                    System.out.print("Fifteen ");
+                    break;
+                case 16:
+                    System.out.print("Sixteen ");
+                    break;
+                case 17:
+                    System.out.print("Seventeen ");
+                    break;
+                case 18:
+                    System.out.print("Eightteen ");
+                    break;
+                case 19:
+                    System.out.print("Nineteen ");
+                    break;
+            }
+        }else if (number<1000){
+            hangtram(hangtram);
+            hangchuc(hangchuc);
+            hangdonvi(hangdonvi);
+        }
+
+
+    }
+    public static void hangdonvi(int num) {
+        switch (num) {
             case 1:
-                System.out.println("One");
+                System.out.print("One ");
                 break;
             case 2:
-                System.out.println("Two");
+                System.out.print("Two ");
                 break;
             case 3:
-                System.out.println("Three");
+                System.out.print("Three ");
                 break;
             case 4:
-                System.out.println("Four");
+                System.out.print("Four ");
                 break;
             case 5:
-                System.out.println("Five");
+                System.out.print("Five ");
                 break;
             case 6:
-                System.out.println("Six");
+                System.out.print("Six ");
                 break;
             case 7:
-                System.out.println("Seven");
+                System.out.print("Seven ");
                 break;
             case 8:
-                System.out.println("Eight");
+                System.out.print("Eight ");
                 break;
             case 9:
-                System.out.println("Nine");
+                System.out.print("Nine ");
                 break;
-        }
-        switch (hangchuc){
-            case 1:
-                System.out.println("ten");
-                break;
-            case 2:
-                System.out.println("twelve");
-                break;
-            case 3:
-                System.out.println("thirty");
-                break;
-            case 4:
-                System.out.println("Fourty");
-                break;
-            case 5:
-                System.out.println("Fifty");
-                break;
-            case 6:
-                System.out.println("Sixty");
-                break;
-            case 7:
-                System.out.println("Seventy");
-                break;
-            case 8:
-                System.out.println("Eighty");
-                break;
-            case 9:
-                System.out.println("Ninety");
-                break;
-        }
-        switch (hangtram){
-            case 100:
-                System.out.println("One hundred");
-                break;
-            case 200:
-                System.out.println("Two hundred");
-                break;
-            case 300:
-                System.out.println("Three hundred");
-                break;
-            case 400:
-                System.out.println("Four hundred");
-                break;
-            case 500:
-                System.out.println("Five hundred");
-                break;
-            case 600:
-                System.out.println("Six hundred");
-                break;
-            case 700:
-                System.out.println("Seven hundred");
-                break;
-            case 800:
-                System.out.println("Eight hundred");
-                break;
-            case 900:
-                System.out.println("Nine hundred");
-                break;
-        }
-        if (number>=100&&number<=999){
-            hangtram;
-            hangchuc;
-            hangdonvi;
+            default:
+                System.out.println("");
         }
     }
-}
+    public static void hangchuc(int num) {
+        switch (num) {
+            case 2:
+                System.out.print("twelty ");
+                break;
+            case 3:
+                System.out.print("thirty ");
+                break;
+            case 4:
+                System.out.print("Fourty ");
+                break;
+            case 5:
+                System.out.print("Fifty ");
+                break;
+            case 6:
+                System.out.print("Sixty ");
+                break;
+            case 7:
+                System.out.print("Seventy ");
+                break;
+            case 8:
+                System.out.print("Eighty ");
+                break;
+            case 9:
+                System.out.print("Ninety ");
+                break;
+            default:
+                System.out.println("");
+        }
+    }
+    public static void hangtram(int num) {
+        switch (num) {
+            case 1:
+                System.out.print("One hundred ");
+                break;
+            case 2:
+                System.out.print("Two hundred ");
+                break;
+            case 3:
+                System.out.print("Three hundred ");
+                break;
+            case 4:
+                System.out.print("Four hundred ");
+                break;
+            case 5:
+                System.out.print("Five hundred ");
+                break;
+            case 6:
+                System.out.print("Six hundred ");
+                break;
+            case 7:
+                System.out.print("Seven hundred ");
+                break;
+            case 8:
+                System.out.print("Eight hundred ");
+                break;
+            case 9:
+                System.out.print("Nine hundred ");
+                break;
+            default:
+                System.out.print("");
+        }
+    }
+    }
