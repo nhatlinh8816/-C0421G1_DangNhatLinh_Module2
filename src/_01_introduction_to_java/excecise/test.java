@@ -2,7 +2,7 @@ package _01_introduction_to_java.excecise;
 
 import java.util.Scanner;
 
-public class NumberToText {
+public class test {
     public static void main(String[] args) {
         System.out.println("Please enter number");
         Scanner scanner = new Scanner(System.in);
@@ -79,14 +79,14 @@ public class NumberToText {
             }
         }else if (number<1000){
             if (109<number&&number<120||
-                    209<number&&number<220||
-                    309<number&&number<320||
-                    409<number&&number<420||
-                    509<number&&number<520||
-                    609<number&&number<620||
-                    709<number&&number<720||
-                    809<number&&number<820||
-                    909<number&&number<920){
+                209<number&&number<220||
+                309<number&&number<320||
+                409<number&&number<420||
+                509<number&&number<520||
+                609<number&&number<620||
+                709<number&&number<720||
+                809<number&&number<820||
+                909<number&&number<920){
                 hangtram(hangtram);
                 sole(sole);
             }else {
@@ -228,4 +228,4 @@ public class NumberToText {
                 System.out.print("" );
         }
     }
-    }
+}
