@@ -10,6 +10,7 @@ public class NumberToText {
         int hangtram = number / 100;
         int hangchuc = (number - hangtram * 100) / 10;
         int hangdonvi = (number - hangtram * 100 - hangchuc * 10);
+        int sole = number - hangtram*100;
         if (number<=12){
             switch (number){
                 case 0:
@@ -76,13 +77,76 @@ public class NumberToText {
                     System.out.print("Nineteen ");
                     break;
             }
+        }else if (number<109){
+            hangtram(hangtram);
+            hangchuc(hangchuc);
+            hangdonvi(hangdonvi);
+        }else if (number<120) {
+            hangtram(hangtram);
+            sole(sole);
+        }else if (number<209){
+            hangtram(hangtram);
+            hangchuc(hangchuc);
+            hangdonvi(hangdonvi);
+        }else if (number<220) {
+            hangtram(hangtram);
+            sole(sole);
+        }else if (number<309){
+            hangtram(hangtram);
+            hangchuc(hangchuc);
+            hangdonvi(hangdonvi);
+        }else if (number<320) {
+            hangtram(hangtram);
+            sole(sole);
+        }else if (number<409){
+            hangtram(hangtram);
+            hangchuc(hangchuc);
+            hangdonvi(hangdonvi);
+        }else if (number<420) {
+            hangtram(hangtram);
+            sole(sole);
+        }else if (number<509){
+            hangtram(hangtram);
+            hangchuc(hangchuc);
+            hangdonvi(hangdonvi);
+        }else if (number<520) {
+            hangtram(hangtram);
+            sole(sole);
+        }else if (number<609){
+            hangtram(hangtram);
+            hangchuc(hangchuc);
+            hangdonvi(hangdonvi);
+        }else if (number<620) {
+            hangtram(hangtram);
+            sole(sole);
+        }else if (number<709){
+            hangtram(hangtram);
+            hangchuc(hangchuc);
+            hangdonvi(hangdonvi);
+        }else if (number<720) {
+            hangtram(hangtram);
+            sole(sole);
+        }else if (number<809){
+            hangtram(hangtram);
+            hangchuc(hangchuc);
+            hangdonvi(hangdonvi);
+        }else if (number<820) {
+            hangtram(hangtram);
+            sole(sole);
+        }else if (number<909){
+            hangtram(hangtram);
+            hangchuc(hangchuc);
+            hangdonvi(hangdonvi);
+        }else if (number<920) {
+            hangtram(hangtram);
+            sole(sole);
         }else if (number<1000){
             hangtram(hangtram);
             hangchuc(hangchuc);
             hangdonvi(hangdonvi);
+        }else {
+            System.out.println("Not invalid");
         }
-
-
     }
     public static void hangdonvi(int num) {
         switch (num) {
@@ -144,7 +208,7 @@ public class NumberToText {
                 System.out.print("Ninety ");
                 break;
             default:
-                System.out.println("");
+                System.out.print("" );
         }
     }
     public static void hangtram(int num) {
@@ -178,6 +242,42 @@ public class NumberToText {
                 break;
             default:
                 System.out.print("");
+        }
+    }
+    public static void sole(int num) {
+        switch (num) {
+            case 10:
+                System.out.print("Ten ");
+                break;
+            case 11:
+                System.out.print("Eleven ");
+                break;
+            case 12:
+                System.out.print("Twelve ");
+                break;
+            case 13:
+                System.out.print("Thirteen ");
+                break;
+            case 14:
+                System.out.print("Fourteen ");
+                break;
+            case 15:
+                System.out.print("Fifteen ");
+                break;
+            case 16:
+                System.out.print("Sixteen ");
+                break;
+            case 17:
+                System.out.print("Seventeen ");
+                break;
+            case 18:
+                System.out.print("Eightteen ");
+                break;
+            case 19:
+                System.out.print("Nineteen ");
+                break;
+            default:
+                System.out.print("" );
         }
     }
     }
