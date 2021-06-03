@@ -7,10 +7,10 @@ public class NumberToText {
         System.out.println("Please enter number");
         Scanner scanner = new Scanner(System.in);
         int number = scanner.nextInt();
-        int hangtram = number / 100;
-        int hangchuc = (number - hangtram * 100) / 10;
-        int hangdonvi = (number - hangtram * 100 - hangchuc * 10);
-        int sole = number - hangtram*100;
+        int hangTram = number / 100;
+        int hangChuc = (number - hangTram * 100) / 10;
+        int hangDonVi = (number - hangTram * 100 - hangChuc * 10);
+        int sole = number - hangTram*100;
         if (number<=12){
             switch (number){
                 case 0:
@@ -54,7 +54,7 @@ public class NumberToText {
                     break;
             }
         }else if (number<20){
-            switch (number){
+            switch(number){
                 case 13:
                     System.out.print("Thirteen ");
                     break;
@@ -87,16 +87,16 @@ public class NumberToText {
                     709<number&&number<720||
                     809<number&&number<820||
                     909<number&&number<920){
-                hangtram(hangtram);
+                hangTram(hangTram);
                 sole(sole);
             }else {
-                hangtram(hangtram);
-                hangchuc(hangchuc);
-                hangdonvi(hangdonvi);
+                hangTram(hangTram);
+                hangChuc(hangChuc);
+                hangDonVi(hangDonVi);
             }
         }
     }
-    public static void hangdonvi(int num) {
+    public static void hangDonVi(int num) {
         switch (num) {
             case 1:
                 System.out.print("One ");
@@ -129,7 +129,7 @@ public class NumberToText {
                 System.out.println("");
         }
     }
-    public static void hangchuc(int num) {
+    public static void hangChuc(int num) {
         switch (num) {
             case 2:
                 System.out.print("twelty ");
@@ -159,7 +159,7 @@ public class NumberToText {
                 System.out.print("" );
         }
     }
-    public static void hangtram(int num) {
+    public static void hangTram(int num) {
         switch (num) {
             case 1:
                 System.out.print("One hundred ");
