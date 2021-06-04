@@ -8,7 +8,7 @@ public class FindElementInArray {
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("Please input array length");
-            m = Integer.parseInt(scanner.nextLine());   //vì nhập số và chuỗi liên tiếp nhau nên không dùng next.Int và
+            m = Integer.parseInt(scanner.nextLine());   //vì nhập số và chuỗi liên tiếp nhau từ bàn phím nên không dùng next.Int và
             // phải dùng Integer.parseInt để lấy phần nguyên.
         } while (m<=0);
         String[]array = new String[m];
