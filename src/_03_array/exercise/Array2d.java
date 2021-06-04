@@ -7,7 +7,7 @@ public class Array2d {
         int m, i, j;
         Scanner input = new Scanner(System.in);
         do {
-            System.out.println("Nhập độ dài của ma trận");
+            System.out.println("Nhập độ dài của ma trận"); //ma trận vuông nên dài rộng bằng nhau
             m = input.nextInt();
         } while (m <= 0);
         int[][] maxtrix = new int[m][m];
