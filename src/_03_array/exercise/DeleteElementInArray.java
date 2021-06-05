@@ -25,13 +25,21 @@ public class DeleteElementInArray {
                 deleteIndex = i;
             }
         }
-        for (int j = deleteIndex;j<n;j++){
-            array[deleteIndex] = array[deleteIndex+1];
+        if (deleteIndex != n-1) {
+            for (int j = deleteIndex; j < n; j++) {
+                array[deleteIndex] = array[deleteIndex + 1];
+            }
+        }else {
+            array[n-1]=0;
+        }
+        for (int i = deleteIndex; i < array.length-1; i++) {
+            array[i] = array[i + 1];
         }
         array[n-1] = 0;
         for (int i = 0; i<n; i++){
             System.out.println(array[i]);
         }
+
 
     }
 }
