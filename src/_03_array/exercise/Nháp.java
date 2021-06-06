@@ -23,19 +23,18 @@ public class Nháp {
         for (int i = 0;i<n;i++){
             if (c==array[i]){
                 deleteIndex = i;
+                if (deleteIndex != n-1) {
+                        array[deleteIndex] = array[deleteIndex + 1];
+                }else {
+                    array[n-1]=0;
+                }
+                for (int h = deleteIndex; i < array.length-1; i++) {
+                    array[h] = array[h + 1];
+                }
+                array[n-1] = 0;
             }
         }
-        if (deleteIndex != n-1) {
-            for (int j = deleteIndex; j < n; j++) {
-                array[deleteIndex] = array[deleteIndex + 1];
-            }
-        }else {
-            array[n-1]=0;
-        }
-        for (int i = deleteIndex; i < array.length-1; i++) {
-            array[i] = array[i + 1];
-        }
-        array[n-1] = 0;
+
         for (int i = 0; i<n; i++){
             System.out.println(array[i]);
         }
