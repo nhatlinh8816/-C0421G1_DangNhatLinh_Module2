@@ -27,18 +27,18 @@ public class Fan {
     }
 
     //setter:
-    private int setSpeed() {
+    private int setSpeed(int speed) {
        return  this.speed = speed;
     }
 
-    private boolean setStatus() {
+    private boolean setStatus(boolean status) {
         return this.status = status;
     }
 
-    private double setRadius() {
+    private double setRadius(double radius) {
         return this.radius = radius;
     }
-    private String setColor() {
+    private String setColor(String color) {
         return this.color = color;
     }
     //constructor:
@@ -69,10 +69,14 @@ public class Fan {
     public static void main(String[] args) {
         Fan fan1 = new Fan(3,10,true,"yellow");
         Fan fan2 = new Fan(2,5,false,"blue");
-        System.out.println("Fan1:");
-        System.out.println(fan1.toString());
-        System.out.println("Fan2:");
-        System.out.println(fan2.toString());
+        System.out.println("Fan1:"+fan1.toString());
+        System.out.println("Fan2:"+fan2.toString());
+        System.out.println(fan1.getStatus());
+        fan1.setRadius(15);
+        fan1.setSpeed(1);
+        fan1.setColor("Purple");
+        fan1.setStatus(false);
+        System.out.println("Fan1:"+fan1.toString());
     }
 }
 //return "speed: "+speed+", radius: "+radius+", status: "+status+", color "+color;
