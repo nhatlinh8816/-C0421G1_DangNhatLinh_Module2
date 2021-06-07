@@ -1,9 +1,13 @@
 package _03_array.exercise;
 
+import _04_oop_class_object.excercise.StopWatch;
+
 import java.util.Scanner;
 
 public class MinOfArray {
     public static void main(String[] args) {
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
         int m,i; //khai báo số nguyên m,i;
         Scanner input = new Scanner(System.in);
         do {
@@ -21,5 +25,7 @@ public class MinOfArray {
                 min = array[i];
             }
         }System.out.println("Min of array is "+min);
+        stopWatch.stop();
+        System.out.println(stopWatch.getElapsedTime());
     }
 }

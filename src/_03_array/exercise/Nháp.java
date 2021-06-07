@@ -25,16 +25,16 @@ public class Nháp {
                 deleteIndex = i;
                 if (deleteIndex != n-1) {
                         array[deleteIndex] = array[deleteIndex + 1];
+                    for (int h = deleteIndex; i < array.length-1; i++) {
+                        array[h] = array[h + 1];
+                    }
                 }else {
                     array[n-1]=0;
                 }
-                for (int h = deleteIndex; i < array.length-1; i++) {
-                    array[h] = array[h + 1];
-                }
+
                 array[n-1] = 0;
             }
         }
-
         for (int i = 0; i<n; i++){
             System.out.println(array[i]);
         }
