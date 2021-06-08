@@ -1,10 +1,10 @@
 package _04_oop_class_object.excercise;
 
 public class Fan {
-    private int SLOW = 1;
-    private int MEDIUM = 2;
-    private int FAST = 3;
-    private int speed = 1;
+    public static final int SLOW = 1;   // khởi tạo hằng để hiển thị tốc độ quạt
+    public static final int MEDIUM = 2;
+    public static final int FAST = 3;
+    private int speed = SLOW;
     private boolean status = false;
     private double radius = 5;
     private String color = "blue";
@@ -25,6 +25,7 @@ public class Fan {
     private String getColor() {
         return this.color;
     }
+
 
     //setter:
     private int setSpeed(int speed) {
@@ -50,10 +51,21 @@ public class Fan {
         this.status = status;
         this.color = color;
     }
+    public String speed(){
+        if (this.speed==1){
+            return "LOW";
+        }else if (this.speed==2){
+            return "MEDIUM";
+        }else if (this.speed==3){
+            return "FAST";
+        } else {
+            return "No speed";
+        }
+    }
     public String toString() {
         if (status==true){
             return
-                    "speed=" + speed +
+                    "speed=" + speed() +
                     ", radius=" + radius +
                     ", color='" + color + '\'' +
                     " fan is on"+ '\'' ;
@@ -67,13 +79,13 @@ public class Fan {
     }
 
     public static void main(String[] args) {
-        Fan fan1 = new Fan(3,10,true,"yellow");
+        Fan fan1 = new Fan(1,10,true,"yellow");
         Fan fan2 = new Fan(2,5,false,"blue");
         System.out.println("Fan1:"+fan1.toString());
         System.out.println("Fan2:"+fan2.toString());
         System.out.println(fan1.getStatus());
         fan1.setRadius(15);
-        fan1.setSpeed(1);
+        fan1.setSpeed(3);
         fan1.setColor("Purple");
         fan1.setStatus(false);
         System.out.println("Fan1:"+fan1.toString());
