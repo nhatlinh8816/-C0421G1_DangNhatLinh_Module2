@@ -4,9 +4,16 @@ import java.util.Scanner;
 
 public class ManagerStudent {
     private static Scanner input = new Scanner(System.in);
+    private static Student[]students;
+     static {
+        students = new Student[50];
+        students[0] = new Student(1,"Trung",33,"Đà Nẵng");
+        students[1] = new Student(2,"Nhật",23,"Quảng Nam");
+        students[2] = new Student(3,"Tài",24,"Quảng Ngãi");
+        students[3] = new Student(4,"Minh",25,"Vinh");
+    }
     public static void main(String[] args) {
         System.out.println("----------Manager Student Program-----------");
-        Student[]students = new Student[50];         //khởi tạo mảng danh sách sinh viên với 50 sinh viên
         int choice;
         do {
             System.out.println("Program List");
@@ -46,8 +53,12 @@ public class ManagerStudent {
     private static void deleteStudent(Student[]students){
         int  deleteStudent = Integer.parseInt(inputOutput("Please enter id of student you want to delete"));
         for (int i = 0; i<50;i++){
-            if (deleteStudent==students[i].id){
+            if (students[i]==null){
+                continue;
+            }
+            else if (deleteStudent==students[i].id){
                 students[i]=null;
+                break;
             }
         }
     }
@@ -64,7 +75,7 @@ public class ManagerStudent {
         for (int i =0;i<students.length;i++){
             if (students[i]==null){         //nếu phần tử thuộc mảng đang rỗng thì sẽ thêm giá trị mới vào
                 students[i] = newStudent;
-                break;
+                break;          // thêm xong phải thoát vòng lặp
             }
         }
     }
@@ -76,13 +87,20 @@ public class ManagerStudent {
 
     private static void editStudent(Student[]students){
         System.out.println("Please input id of students you want to edit");
-        int idCurrentStudent = input.nextInt();
-        String newStudentName = inputOutput("Please input new name");
+        int idCurrentStudent = Integer.parseInt(input.nextLine());
         for(int i = 0; i<students.length;i++){
             if (idCurrentStudent==students[i].id){
+                String newStudentName = inputOutput("Please input new name");
                 students[i].name=newStudentName;
+                System.out.println("Please input new age");
+                int newStudentAge = Integer.parseInt(input.nextLine());
+                students[i].age=newStudentAge;
+                String newStudentAdress = inputOutput("Please input new adress");
+                students[i].address=newStudentAdress;
+                break;
             }else {
                 System.out.println("Student you want to edit is not invalid");
+                break;
             }
         }
     }
