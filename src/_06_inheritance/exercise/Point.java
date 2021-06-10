@@ -41,7 +41,7 @@ public class Point {
     }
 
     public static void main(String[] args) {
-        Point point1 = new Point(4,5);
+        Point point1 = new Point(1,2);
         System.out.println(point1);
         float []array = point1.getXY();
         for (int i =0;i<array.length;i++){

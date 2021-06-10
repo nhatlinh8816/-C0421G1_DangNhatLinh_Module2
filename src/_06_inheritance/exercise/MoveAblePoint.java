@@ -36,7 +36,7 @@ public class MoveAblePoint extends Point {
 
     @Override
     public String toString() {
-        return "("+x+","+y+")"+"speed"+"("+this.xSpeed+","+this.ySpeed+")";
+        return super.toString()+" ,speed"+"("+this.xSpeed+","+this.ySpeed+")";
     }
     public MoveAblePoint move() {
         this.setX(this.getX() + this.xSpeed);
@@ -45,7 +45,9 @@ public class MoveAblePoint extends Point {
     }
 
     public static void main(String[] args) {
-        MoveAblePoint move1 = new MoveAblePoint(1,1);
+        MoveAblePoint move1 = new MoveAblePoint(1,2,3,4);
+        move1.setXSpeed(5);
+        move1.setYSpeed(6);
         System.out.println(move1.move());
     }
 
