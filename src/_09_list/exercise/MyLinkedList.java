@@ -22,7 +22,7 @@ public class MyLinkedList<E> {
     public void add(int index, E data){
         Node temp = head;           //khai báo biến temp tham chiếu đến vị trí của head;
         Node holder;                //khai báo biến Node holder;
-        for(int i=0; i < index-1 && temp.next != null; i++) {   //cho con trỏ chạy đến vị trí index -1
+        for(int i=0; i <= index-2 && temp.next != null; i++) {   //cho con trỏ chạy đến vị trí index -1
             temp = temp.next;
         }
         holder = temp.next; // cho holder tham chiếu đến vị trí index;

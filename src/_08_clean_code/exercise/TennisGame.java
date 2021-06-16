@@ -50,9 +50,15 @@ public class TennisGame {
         String score;
         int minusResult = getMinusResult(player1Score, player2Score);
         if (minusResult==1) score ="Advantage player1";
-        else if (minusResult ==-1) score ="Advantage player2";
-        else if (minusResult>=2) score = "Win for player1";
-        else score ="Win for player2";
+        else if (minusResult ==-1) {
+            score ="Advantage player2";
+        }
+        else if (minusResult>=2) {
+            score = "Win for player1";
+        }
+        else {
+            score ="Win for player2";
+        }
         return score;
     }
 
