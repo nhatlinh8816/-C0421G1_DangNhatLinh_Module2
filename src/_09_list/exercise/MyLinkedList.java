@@ -42,47 +42,6 @@ public class MyLinkedList<E> {
     public void addLast(E lastElement){
         Node temp = head;
     }
-
-    // lấy ra 1 phần tử tại vị trí index;
-    public Node get(int index){
-        Node temp = head;
-        for (int i =0; i<index-1;i++){              // cho con trỏ chạy đến vị trí index -1
-            temp = temp.next;                       // con trỏ tại index -1 chỉ tới team tại vị trí index
-        }
-        return temp;                        // trả về giá trị index;
-    }
-    //in tất cả các phần tử;
-    public void printList(){
-        Node temp = head;
-        while(temp != null) {
-            System.out.println(temp.data);
-            temp = temp.next;
-        }
-    }
-    private class Node {             //khai báo class Node
-        private Node next;              // thuộc tính Node tên là next
-        private Object data;            // thuộc tính data chứa dữ liệu Node
-
-        public Node(Object data) {
-            this.data = data;
-        }
-
-        public Object getData() {
-            return data;
-        }
-    }
-    //Phương thức kiểm tra 1 phần tử có trong LinkedList hay không:
-    public boolean contain(E element){
-        Node temp = head;
-        while (temp.next!=null){
-            if (temp.data.equals(element)){    // dữ liệu temp hiện tại đem so sánh với phần tử muốn tìm kiếm
-                return true;
-            }temp = temp.next;
-        }if(temp.data.equals(element)){         // so sánh đến vị trí cuối cùng
-            return true;
-        }
-        return false;
-    }
     //phương thức xóa 1 phần tử khỏi LinkedList theo vị trí
     public E remove(int index){
         if (index<0||index>numNode){
@@ -120,6 +79,42 @@ public class MyLinkedList<E> {
             } return false;
         }
     }
+
+
+    private class Node {             //khai báo class Node
+        private Node next;              // thuộc tính Node tên là next
+        private Object data;            // thuộc tính data chứa dữ liệu Node
+
+        public Node(Object data) {
+            this.data = data;
+        }
+
+        public Object getData() {
+            return data;
+        }
+    }
+    //Phương thức kiểm tra 1 phần tử có trong LinkedList hay không:
+    public boolean contain(E element){
+        Node temp = head;
+        while (temp.next!=null){
+            if (temp.data.equals(element)){    // dữ liệu temp hiện tại đem so sánh với phần tử muốn tìm kiếm
+                return true;
+            }temp = temp.next;
+        }if(temp.data.equals(element)){         // so sánh đến vị trí cuối cùng
+            return true;
+        }
+        return false;
+    }
+    //phương thức index of;
+    public int indexOf(E element){
+        Node temp = head;
+        for (int i =0; i<numNode;i++){
+            if (temp.getData().equals(element)){
+                return i;
+            }temp = temp.next;
+        }return -1;
+    }
+    //phương thức clone;
     public MyLinkedList<E> clone(){
         if (numNode==0){
             throw new NullPointerException();
@@ -132,12 +127,27 @@ public class MyLinkedList<E> {
         temp.addFirst((E) tempNode.data);
         //trỏ đến node kế tiếp
         tempNode = tempNode.next;
-        //add tất cả node kế toán vào danh sách
+        //add tất cả node kế tiếp vào danh sách
         while (tempNode!=null){
             temp.addLast((E)tempNode.data);
             tempNode = tempNode.next;
         }
         return temp;
     }
+    // lấy ra 1 phần tử tại vị trí index;
+    public Node get(int index){
+        Node temp = head;
+        for (int i =0; i<=index-1;i++){              // cho con trỏ chạy đến vị trí index -1
+            temp = temp.next;                       // con trỏ tại index -1 chỉ tới temp tại vị trí index
+        }
+        return temp;                        // trả về giá trị index;
+    }
+    // lấy ra phần tử đầu tiên (head);
+    public Node getFirst(){
+        Node temp = head;
+        temp=temp.next;
+        return temp;
+    }
+
 }
 

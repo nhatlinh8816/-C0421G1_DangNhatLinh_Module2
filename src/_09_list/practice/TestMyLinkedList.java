@@ -9,5 +9,6 @@ public class TestMyLinkedList {
         list.addFirst(4);
         list.add(3,5);
         list.printList();
+        System.out.println(list.getHead());
     }
 }

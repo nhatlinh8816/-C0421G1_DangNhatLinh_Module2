@@ -39,6 +39,12 @@ public class MyLinkedList<E> {          //khai báo myLikedList
         }
         return temp;                        // trả về giá trị index;
     }
+    // lấy ra phần tử đầu tiên (head);
+    public Node getHead(){
+        Node temp = head;
+        temp=temp.next;
+        return temp;
+    }
     //in tất cả các phần tử;
     public void printList(){
         Node temp = head;
