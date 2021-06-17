@@ -40,7 +40,7 @@ public class MyLinkedList<E> {          //khai báo myLikedList
         return temp;                        // trả về giá trị index;
     }
     // lấy ra phần tử đầu tiên (head);
-    public Node getHead(){
+    public Node getFirst(){
         Node temp = head;
         temp=temp.next;
         return temp;
@@ -68,6 +68,12 @@ public class MyLinkedList<E> {          //khai báo myLikedList
 
     public MyLinkedList() {
     }
+    public void clear(){
+        Node temp = head;
+        numNode =0;
+        temp.data = null;
+        temp.next = null;
 
+    }
 
 }

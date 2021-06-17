@@ -1,5 +1,7 @@
 package _09_list.exercise;
 
+import java.util.LinkedList;
+
 public class MyListTest {
     public static class Fruit {
         String name;
@@ -30,6 +32,7 @@ public class MyListTest {
     }
 
     public static void main(String[] args) {
+
         MyArrayList<Fruit> myArrayList = new MyArrayList<>(5);
         myArrayList.ensureCapacity(5);
         myArrayList.add(new Fruit("Apple","Red"));

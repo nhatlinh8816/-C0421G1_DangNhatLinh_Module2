@@ -1,5 +1,8 @@
 package _09_list.exercise;
 
+import java.util.LinkedList;
+import java.util.NoSuchElementException;
+
 public class MyLinkedList<E> {
     //thuộc tính:
     private Node head;              //thuộc tính Node head
@@ -142,11 +145,27 @@ public class MyLinkedList<E> {
         }
         return temp;                        // trả về giá trị index;
     }
-    // lấy ra phần tử đầu tiên (head);
+    // lấy ra phần tử đầu tiên ;
     public Node getFirst(){
         Node temp = head;
-        temp=temp.next;
+        temp = temp.next;
         return temp;
+    }
+    // lấy ra 1 phần tử cuối cùng;
+    public Node getLast(){
+        Node temp = head;
+        for (int i =0; i<numNode;i++){
+            temp = temp.next;
+        }
+        return temp;
+    }
+    //Xóa linkedList;
+    public void clear(){
+        Node temp = head;
+        numNode =0;
+        temp.data = null;
+        temp.next = null;
+
     }
 
 }
