@@ -82,12 +82,14 @@ public class ProductManager {
         } else {
             System.out.println("Input name for product");
             String searchName = input.nextLine();
-            boolean check = true;
+            boolean check = false;
             for (Product products: productList){
                 if (!searchName.equals(products.name)){
-                    System.out.println("No product found");
+                    check = false;
                 }else {
+                    check = true;
                     products.display();
+                    break;
                 }
             }
         }
@@ -98,7 +100,7 @@ public class ProductManager {
         } else {
             System.out.println("Input id for product");
             int searchId = input.nextInt();
-            boolean check = true;
+            boolean check = false;
             for (Product products: productList){
                 if (searchId!=products.id){
                     System.out.println("No product found");
@@ -118,7 +120,7 @@ public class ProductManager {
             boolean check = true;
             for (Product products: productList){
                 if (searchId!=products.id){
-                    System.out.println("No product found");
+                    check = false;
                 }else {
                     String newName = inputOutput("Please input new name");
                     products.name = newName;
