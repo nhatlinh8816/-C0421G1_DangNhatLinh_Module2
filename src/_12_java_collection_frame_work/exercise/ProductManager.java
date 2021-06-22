@@ -27,7 +27,7 @@ public class ProductManager {
             System.out.println("3.Sửa sản phẩm");
             System.out.println("4.Xóa sản phẩm");
             System.out.println("5.Tìm kiếm sản phẩm");
-            System.out.println("6.Sắp xếp sản phẩm");
+            System.out.println("6.Sắp xếp sản phẩm theo giá từ thấp đến cao");
             System.out.println("7.Thoát chương trình");
             choice= Integer.parseInt(input.nextLine());
             switch (choice){
@@ -48,6 +48,9 @@ public class ProductManager {
                     break;
                 case 6:
                     product.sortProduct();
+                    break;
+                case 7:
+                    System.exit(7);
                     break;
             }
         }while (choice!=7);
