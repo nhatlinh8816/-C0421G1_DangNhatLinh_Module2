@@ -1,6 +1,6 @@
 package _12_java_collection_frame_work.exercise;
 
-public class Product {
+public class Product  {
     public int id;
     public String name;
     public float price;
@@ -41,4 +41,15 @@ public class Product {
     void display(){
         System.out.println("Id:"+id+" Name:"+name+" Price:"+price);
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
+
 }

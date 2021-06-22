@@ -3,6 +3,8 @@ package _12_java_collection_frame_work.exercise;
 import _03_array.practice.Student;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class ProductManager {
@@ -44,8 +46,9 @@ public class ProductManager {
                 case 5:
                     product.searchProduct();
                     break;
-
-
+                case 6:
+                    product.sortProduct();
+                    break;
             }
         }while (choice!=7);
     }
@@ -123,6 +126,9 @@ public class ProductManager {
                 }
             }
         }
+    }
+    public void sortProduct(){
+        Collections.sort(productList, new PriceComparator());
     }
 
 }
