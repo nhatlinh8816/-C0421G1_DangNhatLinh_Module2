@@ -92,6 +92,9 @@ public class ProductManager {
                     break;
                 }
             }
+            if (check==false){
+                System.out.println("No product found");
+            }
         }
     }
     public void deleteProduct(){
@@ -103,11 +106,15 @@ public class ProductManager {
             boolean check = false;
             for (Product products: productList){
                 if (searchId!=products.id){
-                    System.out.println("No product found");
+                    check = false;
                 }else {
+                    check = true;
                     productList.remove(products);
                     break;
                 }
+            }
+            if (check==false){
+                System.out.println("No product found");
             }
         }
     }
@@ -117,11 +124,12 @@ public class ProductManager {
         } else {
             System.out.println("Input id for product");
             int searchId = Integer.parseInt(input.nextLine());
-            boolean check = true;
+            boolean check = false;
             for (Product products: productList){
                 if (searchId!=products.id){
-                    check = false;
+                    check =false;
                 }else {
+                    check = true;
                     String newName = inputOutput("Please input new name");
                     products.name = newName;
                     System.out.println("Input price for product you want to edit");
@@ -129,6 +137,9 @@ public class ProductManager {
                     products.price = newPrice;
                     break;
                 }
+            }
+            if (check==false){
+                System.out.println("No product found");
             }
         }
     }
