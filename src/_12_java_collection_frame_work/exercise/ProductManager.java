@@ -3,7 +3,6 @@ package _12_java_collection_frame_work.exercise;
 import _03_array.practice.Student;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Scanner;
 
