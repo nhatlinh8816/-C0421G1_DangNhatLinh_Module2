@@ -18,8 +18,8 @@ public class ArrayExample {
         ArrayExample arrayExample = new ArrayExample();
         Integer[]array = arrayExample.creatRandom100();
         System.out.println("input an index");
-        int a = scanner.nextInt();
         try {
+            int a = scanner.nextInt();
             System.out.println("Index " + a + " have value is " + array[a]);
         }catch (IndexOutOfBoundsException e){
             System.err.println("Index out of array length");
