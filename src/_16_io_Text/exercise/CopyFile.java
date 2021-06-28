@@ -1,7 +1,5 @@
 package _16_io_Text.exercise;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
 
 public class CopyFile {
