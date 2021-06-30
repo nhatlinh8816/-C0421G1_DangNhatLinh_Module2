@@ -20,5 +20,47 @@ public class Employee extends Person {
         this.position = position;
         this.salary = salary;
     }
+
+    public int getIdEmployee() {
+        return idEmployee;
+    }
+
+    public void setIdEmployee(int idEmployee) {
+        this.idEmployee = idEmployee;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public float getSalary() {
+        return salary;
+    }
+
+    public void setSalary(float salary) {
+        this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+
+                "idEmployee=" + idEmployee +
+                ", level='" + level + '\'' +
+                ", position='" + position + '\'' +
+                ", salary=" + salary +
+                '}';
+    }
 }
 
