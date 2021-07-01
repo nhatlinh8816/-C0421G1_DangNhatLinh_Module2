@@ -8,9 +8,9 @@ public class Person {
     private String phoneNumber;
     private String email;
 
-    public Person(String name, String dateOfBith, String gender, String identityNumber, String phoneNumber, String email) {
+    public Person(String name, String dateOfBirth, String gender, String identityNumber, String phoneNumber, String email) {
         this.name = name;
-        this.dateOfBirth = dateOfBith;
+        this.dateOfBirth = dateOfBirth;
         this.gender = gender;
         this.identityNumber = identityNumber;
         this.phoneNumber = phoneNumber;
