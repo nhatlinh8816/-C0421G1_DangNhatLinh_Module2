@@ -1,9 +1,9 @@
 package _case_Study.models;
 
 public class Employee extends Person {
-    int idEmployee;
-    String level;
-    String position;
+    private int idEmployee;
+    private String level;
+    private String position;
     float salary;
 
     public Employee(String name, String dateOfBith, String gender, String identityNumber, String phoneNumber, String email, int idEmployee, String level, String position, float salary) {

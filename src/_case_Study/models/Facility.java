@@ -1,11 +1,11 @@
 package _case_Study.models;
 
 public class Facility {
-    public String name;
-    public float area;
-    public float cost;
-    public int maximumPeople;
-    public String rentalType;
+    private String name;
+    private float area;
+    private float cost;
+    private int maximumPeople;
+    private String rentalType;
 
     public Facility(String name, float area, float cost, int maximumPeople, String rentalType) {
         this.name = name;

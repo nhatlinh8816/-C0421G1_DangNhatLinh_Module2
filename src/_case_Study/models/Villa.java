@@ -1,9 +1,9 @@
 package _case_Study.models;
 
 public class Villa extends Facility {
-    String standard;
-    float areaOfPool;
-    int numberOfFlour;
+    private String standard;
+    private float areaOfPool;
+    private int numberOfFlour;
 
     public Villa(String name, float area, float cost, int maximumPeople, String rentalType, String standard, float areaOfPool, int numberOfFlour) {
         super(name, area, cost, maximumPeople, rentalType);

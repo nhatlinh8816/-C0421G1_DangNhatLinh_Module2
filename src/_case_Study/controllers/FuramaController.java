@@ -8,11 +8,6 @@ public class FuramaController {
     public static Scanner input = new Scanner(System.in);
 
     public static void displayMainMenu() {
-        EmployeeServiceImplement employeeServiceImplement = new EmployeeServiceImplement();
-        CustomerServiceImplement customerServiceImplement = new CustomerServiceImplement();
-        BookingServiceImplement bookingServiceImplement = new BookingServiceImplement();
-        PromotionServiceImplement promotionServiceImplement = new PromotionServiceImplement();
-        FacilityServiceImplement facilityServiceImplement = new FacilityServiceImplement();
         System.out.println("----Menu chương trình----");
         int choice;
         do {
@@ -26,19 +21,20 @@ public class FuramaController {
             choice = Integer.parseInt(input.nextLine());
             switch (choice) {
                 case 1:
-                    employeeServiceImplement.showMenu();
+                    EmployeeController.employeeManagement();
+
                     break;
                 case 2:
-                    customerServiceImplement.showMenu();
+                    CustomerController.customerManagement();
                     break;
                 case 3:
-                    facilityServiceImplement.showMenu();
+                    FacilityController.facilityManagement();
                     break;
                 case 4:
-                    bookingServiceImplement.showMenu();
+                    BookingController.bookingManagement();
                     break;
                 case 5:
-                    promotionServiceImplement.showMenu();
+                    PromotionController.promotionManagement();
                     break;
                 case 6:
                     System.exit(6);
@@ -46,7 +42,14 @@ public class FuramaController {
             }
         } while (choice != 6);
     }
-}
+
+
+
+
+
+    }
+
+
 
 
 

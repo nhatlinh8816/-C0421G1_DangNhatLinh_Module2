@@ -1,8 +1,7 @@
 package _case_Study.services;
 
 public interface PromotionService extends Service {
-    @Override
-    void showMenu();
+
 
     @Override
     void display();

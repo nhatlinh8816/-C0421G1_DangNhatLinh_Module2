@@ -1,7 +1,7 @@
 package _case_Study.models;
 
 public class Room extends Facility {
-    String freeService;
+    private String freeService;
 
     public Room(String name, float area, float cost, int maximumPeople, String rentalType, String freeService) {
         super(name, area, cost, maximumPeople, rentalType);

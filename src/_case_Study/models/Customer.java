@@ -1,9 +1,9 @@
 package _case_Study.models;
 
 public class Customer extends Person {
-    int idCustomer;
-    String typeOfCustomer;
-    String address;
+    private int idCustomer;
+    private String typeOfCustomer;
+    private String address;
 
     public Customer(String name, String dateOfBirth, String gender, String identityNumber, String phoneNumber, String email, int idCustomer, String typeOfCustomer, String address) {
         super(name, dateOfBirth, gender, identityNumber, phoneNumber, email);

@@ -5,14 +5,14 @@ public class Contract {
     private Booking codeOfBooking;
     private float deposit;
     private float amount;
-    private Customer idCustomer;
+    private Customer customer;
 
-    public Contract(String numberOfContract, Booking codeOfBooking, float deposit, float amount, Customer idCustomer) {
+    public Contract(String numberOfContract, Booking codeOfBooking, float deposit, float amount, Customer customer) {
         this.numberOfContract = numberOfContract;
         this.codeOfBooking = codeOfBooking;
         this.deposit = deposit;
         this.amount = amount;
-        this.idCustomer = idCustomer;
+        this.customer = customer;
     }
 
     public String getNumberOfContract() {
@@ -47,11 +47,11 @@ public class Contract {
         this.amount = amount;
     }
 
-    public Customer getIdCustomer() {
-        return idCustomer;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setIdCustomer(Customer idCustomer) {
-        this.idCustomer = idCustomer;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }

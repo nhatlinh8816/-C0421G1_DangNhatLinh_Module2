@@ -1,0 +1,5 @@
+Person{name='Tuấn', dateOfBirth='1', gender='1', identityNumber='1', phoneNumber='1', email='1'}idEmployee=2, level='1', position='1', salary=1.0}
+Person{name='linh', dateOfBirth='13', gender='Nam', identityNumber='123', phoneNumber='234', email='34'}idEmployee=1, level='', position='4', salary=4.0}
+Person{name='Linh', dateOfBirth='13/02', gender='Nam', identityNumber='0123', phoneNumber='678', email='linh@123'}idEmployee=1, level='Đại học', position='TP', salary=1.5E7}
+Person{name='Linh', dateOfBirth='13/02', gender='Nam', identityNumber='0123', phoneNumber='678', email='linh@123'}idEmployee=1, level='Đại học', position='TP', salary=1.5E7}
+Person{name='Tuấn', dateOfBirth='14/2', gender='nam', identityNumber='0123', phoneNumber='456', email='kinh@l'}idEmployee=2, level='TP', position='TP', salary=14555.0}

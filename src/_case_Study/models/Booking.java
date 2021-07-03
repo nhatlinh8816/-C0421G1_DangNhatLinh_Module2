@@ -4,14 +4,14 @@ public class Booking {
     private String codeBooking;
     private String checkInDate;
     private String checkOutDate;
-    private Customer idCustormer;
+    private Customer customer;
     private Facility nameFacility;
 
-    public Booking(String codeBooking, String checkInDate, String checkOutDate, Customer idCustormer, Facility nameFacility) {
+    public Booking(String codeBooking, String checkInDate, String checkOutDate, Customer customer, Facility nameFacility) {
         this.codeBooking = codeBooking;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
-        this.idCustormer = idCustormer;
+        this.customer = customer;
         this.nameFacility = nameFacility;
     }
 
@@ -39,12 +39,12 @@ public class Booking {
         this.checkOutDate = checkOutDate;
     }
 
-    public Customer getIdCustormer() {
-        return idCustormer;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setIdCustormer(Customer idCustormer) {
-        this.idCustormer = idCustormer;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public Facility getNameFacility() {
