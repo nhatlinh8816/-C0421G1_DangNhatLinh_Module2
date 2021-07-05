@@ -48,8 +48,8 @@ public class CustomerServiceImplement implements CustomerService {
         String address = input.nextLine();
         System.out.println("Nhập mã khách hàng");
         int idCustomer = Integer.parseInt(input.nextLine());
-        Customer newcustomer = new Customer(name, dateOfBirth, gender, identityNumber, phoneNumber, email,idCustomer, typeOfCustomer, address);
-        customerList.add(newcustomer);
+        Customer newCustomer = new Customer(name, dateOfBirth, gender, identityNumber, phoneNumber, email,idCustomer, typeOfCustomer, address);
+        customerList.add(newCustomer);
     }
 
     @Override

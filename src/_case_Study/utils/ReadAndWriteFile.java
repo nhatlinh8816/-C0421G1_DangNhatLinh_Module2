@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWriteFile {
-    public static void writeFile(String pathFile, Employee line){
+    public static <E> void writeFile(String pathFile, E line){
         try {
             FileWriter fileWriter = new FileWriter(pathFile,true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
