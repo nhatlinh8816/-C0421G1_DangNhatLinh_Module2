@@ -1,10 +1,10 @@
 package _case_Study.services;
 
-public interface Service {
+import java.util.List;
 
-    public void display();
-    public void add();
-    public void creat();
-    public void edit();
+public interface Service<T> {    //tạo class interface
+    List<T> readData();     //đọc dữ liệu từ file
+    void add();         //thêm mới
+    void edit();        //sửa dữ liêu
 
 }

@@ -1,6 +1,6 @@
 package _case_Study.controllers;
 
-import _case_Study.services.FacilityServiceImplement;
+import _case_Study.services.Facility.FacilityServiceImplement;
 
 import java.util.Scanner;
 

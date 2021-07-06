@@ -3,3 +3,4 @@ Person{name='linh', dateOfBirth='13', gender='Nam', identityNumber='123', phoneN
 Person{name='Linh', dateOfBirth='13/02', gender='Nam', identityNumber='0123', phoneNumber='678', email='linh@123'}idEmployee=1, level='Đại học', position='TP', salary=1.5E7}
 Person{name='Linh', dateOfBirth='13/02', gender='Nam', identityNumber='0123', phoneNumber='678', email='linh@123'}idEmployee=1, level='Đại học', position='TP', salary=1.5E7}
 Person{name='Tuấn', dateOfBirth='14/2', gender='nam', identityNumber='0123', phoneNumber='456', email='kinh@l'}idEmployee=2, level='TP', position='TP', salary=14555.0}
+[Person{name='Nam', dateOfBirth='13/2', gender='Nam', identityNumber='01234', phoneNumber='0818', email='da@gmail'}idEmployee=1, level='Đại học', position='Trưởng Phòng', salary=1.5E7}]

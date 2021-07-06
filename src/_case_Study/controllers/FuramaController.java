@@ -22,7 +22,6 @@ public class FuramaController {
             switch (choice) {
                 case 1:
                     EmployeeController.employeeManagement();
-
                     break;
                 case 2:
                     CustomerController.customerManagement();

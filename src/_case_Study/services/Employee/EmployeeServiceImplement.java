@@ -1,9 +1,8 @@
-package _case_Study.services;
+package _case_Study.services.Employee;
 
-import _12_java_collection_frame_work.exercise.Product;
 import _case_Study.models.Employee;
+import _case_Study.services.Employee.EmployeeService;
 import _case_Study.utils.ReadAndWriteFile;
-import com.sun.org.apache.xerces.internal.xs.StringList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,31 +11,35 @@ import java.util.Scanner;
 public class EmployeeServiceImplement implements EmployeeService {
     public static Scanner input = new Scanner(System.in);
     public static final String EMPLOYEE_FILE_PATH = "src\\_case_Study\\data\\employee.csv";
+    List<Employee> listEmployee = new ArrayList<>();
+    public static final ReadAndWriteFile<Employee> employeeReadAndWriteFile = new ReadAndWriteFile<>();
     private static String inputOutput(String message){
         System.out.println(message);
         String output = input.nextLine();
         return output;
     }
-    List<Employee> listEmployee = new ArrayList<>();
-    public void readDataEmployee(){
-        listEmployee = ReadAndWriteFile.readFile(EMPLOYEE_FILE_PATH);
-    }
+
+
     @Override
+    public List<Employee> readData() {
+        listEmployee = employeeReadAndWriteFile.readFile(EMPLOYEE_FILE_PATH);
+        return listEmployee ;
+    }
+
+
     public void display() {
         if (listEmployee.size()==0){
             System.out.println("Không có nhân viên nào");
         }else {
-
+            new EmployeeServiceImplement().readData();
             for (Employee element: listEmployee){
                 System.out.println(element.toString());
-
             }
         }
     }
 
     @Override
     public void add() {
-//        readDataEmployee();
         int id;
         if (listEmployee.isEmpty()){
             id = 1;
@@ -63,17 +66,10 @@ public class EmployeeServiceImplement implements EmployeeService {
         float salary = Float.parseFloat(input.nextLine());
         Employee newEmployee = new Employee(name,dateOfBith,gender,identityNumber,phoneNumber,email,id,level,position,salary);
         listEmployee.add(newEmployee);
-        Employee line = null;
-        for (Employee element: listEmployee){
-            line = element;
-            ReadAndWriteFile.writeFile(EMPLOYEE_FILE_PATH,line);
-        }
-    }
-
-    @Override
-    public void creat() {
+        employeeReadAndWriteFile.writeFile(EMPLOYEE_FILE_PATH,listEmployee);
 
     }
+
 
     @Override
     public void edit() {
@@ -108,8 +104,8 @@ public class EmployeeServiceImplement implements EmployeeService {
                     System.out.println("Nhập lại mức lương");
                     float newSalary = Float.parseFloat(input.nextLine());
                     element.setSalary(newSalary);
-                    line = element;
-                    ReadAndWriteFile.writeFile(EMPLOYEE_FILE_PATH,line);
+                    ReadAndWriteFile.clearFile(EMPLOYEE_FILE_PATH);
+                    employeeReadAndWriteFile.writeFile(EMPLOYEE_FILE_PATH,listEmployee);
                     break;
                 }
             }
