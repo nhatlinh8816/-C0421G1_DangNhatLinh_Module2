@@ -1,6 +1,8 @@
 package _case_Study.models;
 
-public class Facility {
+import java.io.Serializable;
+
+public class Facility implements Serializable {
     private String name;
     private float area;
     private float cost;
@@ -56,5 +58,16 @@ public class Facility {
 
     public void setRentalType(String rentalType) {
         this.rentalType = rentalType;
+    }
+
+    @Override
+    public String toString() {
+        return "Facility{" +
+                "name='" + name + '\'' +
+                ", area=" + area +
+                ", cost=" + cost +
+                ", maximumPeople=" + maximumPeople +
+                ", rentalType='" + rentalType + '\'' +
+                '}';
     }
 }

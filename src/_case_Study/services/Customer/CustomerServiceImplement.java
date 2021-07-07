@@ -1,6 +1,7 @@
 package _case_Study.services.Customer;
 
 import _case_Study.models.Customer;
+import _case_Study.models.Employee;
 import _case_Study.utils.ReadAndWriteFile;
 
 import java.util.LinkedList;
@@ -9,7 +10,6 @@ import java.util.Scanner;
 
 public class CustomerServiceImplement implements CustomerService {
     private static final String CUSTOMER_FILE_PATH = "src\\_case_Study\\data\\customer.csv";
-    private static ReadAndWriteFile<Customer> customerReadAndWriteFile = new ReadAndWriteFile<>();
     List<Customer> customerList = new LinkedList<>();
     static Scanner input = new Scanner(System.in);
 
@@ -22,7 +22,7 @@ public class CustomerServiceImplement implements CustomerService {
 
     @Override
     public List readData() {
-        customerList = customerReadAndWriteFile.readFile(CUSTOMER_FILE_PATH);
+        customerList = new ReadAndWriteFile<Employee>().readFile(CUSTOMER_FILE_PATH);
         return customerList;
     }
     public void display() {
@@ -58,7 +58,8 @@ public class CustomerServiceImplement implements CustomerService {
         int idCustomer = Integer.parseInt(input.nextLine());
         Customer newCustomer = new Customer(name, dateOfBirth, gender, identityNumber, phoneNumber, email,idCustomer, typeOfCustomer, address);
         customerList.add(newCustomer);
-        customerReadAndWriteFile.writeFile(CUSTOMER_FILE_PATH,customerList);
+        new ReadAndWriteFile<>().clearFile(CUSTOMER_FILE_PATH);
+        new ReadAndWriteFile<>().writeFile(CUSTOMER_FILE_PATH,customerList);
 
     }
 
@@ -91,8 +92,8 @@ public class CustomerServiceImplement implements CustomerService {
                     element.setTypeOfCustomer(newTypeOfCustomer);
                     String newAddress = inputOutput("Nhập lại địa chỉ");
                     element.setAddress(newAddress);
-                    ReadAndWriteFile.clearFile(CUSTOMER_FILE_PATH);
-                    customerReadAndWriteFile.writeFile(CUSTOMER_FILE_PATH,customerList);
+                    new ReadAndWriteFile<>().clearFile(CUSTOMER_FILE_PATH);
+                    new ReadAndWriteFile<>().writeFile(CUSTOMER_FILE_PATH,customerList);
                     break;
                 }
             }

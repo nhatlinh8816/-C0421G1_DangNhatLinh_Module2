@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ReadAndWriteFile<E extends Object> {
-    public static <E> void writeFile(String pathFile, E line){
+    public   <E> void writeFile(String pathFile, E line){
         try {
             FileWriter fileWriter = new FileWriter(pathFile,true);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -21,7 +21,7 @@ public class ReadAndWriteFile<E extends Object> {
             e.printStackTrace();
         }
     }
-    public static <E> List<E> readFile (String pathFile){
+    public <E> List<E> readFile (String pathFile){
         List<E> listLine = new ArrayList<>();
         try {
             FileReader fileReader = new FileReader(pathFile);
@@ -36,18 +36,18 @@ public class ReadAndWriteFile<E extends Object> {
             e.printStackTrace();
         }return listLine;
     }
-    public static <E> void clearFile(String pathFile){
+    public <E> void clearFile(String pathFile){
         try {
-            FileWriter fileWriter = new FileWriter(pathFile,true);
+            FileWriter fileWriter = new FileWriter(pathFile,false);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(String.valueOf((Object) null));
+            bufferedWriter.write("");
             bufferedWriter.newLine();
             bufferedWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public Map<E,Integer>  readMapData(String pathFile){
+    public Map<E,Integer> readMapData(String pathFile){
         Map<E,Integer> list = new LinkedHashMap<>();
         try {
             FileInputStream fileInputStream = new FileInputStream(pathFile);
@@ -60,5 +60,31 @@ public class ReadAndWriteFile<E extends Object> {
         } catch (ClassNotFoundException classNotFoundException) {
             classNotFoundException.printStackTrace();
         }return list;
+    }
+    public void writeMapData(String pathFile,Map<E,Integer> list){
+        try {
+            FileOutputStream outputStream = new FileOutputStream(pathFile);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+            objectOutputStream.writeObject(list);
+            objectOutputStream.close();
+            outputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void clearMapData(String pathFile){
+        try {
+            FileOutputStream outputStream = new FileOutputStream(pathFile);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+            objectOutputStream.writeObject(null);
+            objectOutputStream.close();
+            outputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

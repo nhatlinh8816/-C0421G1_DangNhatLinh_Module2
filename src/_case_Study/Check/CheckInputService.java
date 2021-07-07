@@ -16,11 +16,13 @@ public class CheckInputService {
     }
     public boolean checkHouse(String input){
         boolean check = false;
-        final String REGEX_HOUSE = "^[S][V][H][0][-]\\d{4}$";
+        final String REGEX_HOUSE = "^[S][V][H][O][-]\\d{4}$";
         Pattern pattern = Pattern.compile(REGEX_HOUSE);
         Matcher matcher = pattern.matcher(input);
         if (matcher.matches()){
             check = true;
+        }else {
+            check = false;
         }
         return check;
     }
@@ -65,7 +67,7 @@ public class CheckInputService {
     }
     public boolean checkStandardHouse(String input){
         boolean check = false;
-        final String REGEX_STANDARD_HOUSE = "^[S][T][H][0][-]\\d{4}$";
+        final String REGEX_STANDARD_HOUSE = "^[S][T][H][O][-]\\d{4}$";
         Pattern pattern = Pattern.compile(REGEX_STANDARD_HOUSE);
         Matcher matcher = pattern.matcher(input);
         if (matcher.matches()){
@@ -75,7 +77,7 @@ public class CheckInputService {
     }
     public boolean checkStandardRoom(String input){
         boolean check = false;
-        final String REGEX_STANDARD_ROOM = "^[S][T][R][0][-]\\d{4}$";
+        final String REGEX_STANDARD_ROOM = "^[S][T][R][O][-]\\d{4}$";
         Pattern pattern = Pattern.compile(REGEX_STANDARD_ROOM);
         Matcher matcher = pattern.matcher(input);
         if (matcher.matches()){

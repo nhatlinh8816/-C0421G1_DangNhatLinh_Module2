@@ -12,7 +12,6 @@ public class EmployeeServiceImplement implements EmployeeService {
     public static Scanner input = new Scanner(System.in);
     public static final String EMPLOYEE_FILE_PATH = "src\\_case_Study\\data\\employee.csv";
     List<Employee> listEmployee = new ArrayList<>();
-    public static final ReadAndWriteFile<Employee> employeeReadAndWriteFile = new ReadAndWriteFile<>();
     private static String inputOutput(String message){
         System.out.println(message);
         String output = input.nextLine();
@@ -22,7 +21,7 @@ public class EmployeeServiceImplement implements EmployeeService {
 
     @Override
     public List<Employee> readData() {
-        listEmployee = employeeReadAndWriteFile.readFile(EMPLOYEE_FILE_PATH);
+        listEmployee = new ReadAndWriteFile<Employee>().readFile(EMPLOYEE_FILE_PATH);
         return listEmployee ;
     }
 
@@ -66,7 +65,8 @@ public class EmployeeServiceImplement implements EmployeeService {
         float salary = Float.parseFloat(input.nextLine());
         Employee newEmployee = new Employee(name,dateOfBith,gender,identityNumber,phoneNumber,email,id,level,position,salary);
         listEmployee.add(newEmployee);
-        employeeReadAndWriteFile.writeFile(EMPLOYEE_FILE_PATH,listEmployee);
+        new ReadAndWriteFile<>().clearFile(EMPLOYEE_FILE_PATH);
+        new ReadAndWriteFile<>().writeFile(EMPLOYEE_FILE_PATH,listEmployee);
 
     }
 
@@ -104,8 +104,8 @@ public class EmployeeServiceImplement implements EmployeeService {
                     System.out.println("Nhập lại mức lương");
                     float newSalary = Float.parseFloat(input.nextLine());
                     element.setSalary(newSalary);
-                    ReadAndWriteFile.clearFile(EMPLOYEE_FILE_PATH);
-                    employeeReadAndWriteFile.writeFile(EMPLOYEE_FILE_PATH,listEmployee);
+                    new ReadAndWriteFile<>().clearFile(EMPLOYEE_FILE_PATH);
+                    new ReadAndWriteFile<>().writeFile(EMPLOYEE_FILE_PATH,listEmployee);
                     break;
                 }
             }

@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class RegexClass {
     public static Scanner scanner = new Scanner(System.in);
-    public static final String REGEX_CLASS = "^[ACP][0-9]{4}[GHIKLM]$";
+    public static final String REGEX_CLASS = "^[S][V][H][O][-]\\d{4}$";
     public static void main(String[] args) {
         Pattern pattern = Pattern.compile(REGEX_CLASS);
         System.out.println("Nhập tên lớp học");

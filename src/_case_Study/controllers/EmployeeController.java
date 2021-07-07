@@ -28,7 +28,7 @@ public class EmployeeController {
                     employeeServiceImplement.edit();
                     break;
                 case 4:
-                    System.exit(4);
+                    FuramaController.displayMainMenu();
                     break;
             }
         }while (choice!=4);

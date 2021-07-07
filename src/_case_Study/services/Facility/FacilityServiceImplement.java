@@ -1,26 +1,38 @@
 package _case_Study.services.Facility;
 
 import _case_Study.Exception.Choice;
-import _case_Study.models.Facility;
-import _case_Study.services.Facility.FacilityService;
-import _case_Study.utils.ReadAndWriteFile;
+import _case_Study.controllers.FacilityController;
+
 
 import java.util.*;
 
 public class FacilityServiceImplement implements FacilityService {
     public static Scanner input = new Scanner(System.in);
-    private static String inputOutput(String message) {
-        System.out.println(message);
-        String output = input.nextLine();
-        return output;
-    }
-
     public static Map<String, Integer> facility = new LinkedHashMap<>();
 
-
     public void display() {
-        Set<Map.Entry<String, Integer>> setHashMap = facility.entrySet();
-        System.out.println(setHashMap);
+        int choice = 0;
+        while (choice!=4) {
+            System.out.println("1.Display Villa");
+            System.out.println("2.Display House");
+            System.out.println("3.Display Room");
+            System.out.println("4.Exit");
+            choice = new Choice().choiceInteger();
+            switch (choice){
+                case 1:
+                    new VillaServiceImplement().display();
+                    break;
+                case 2:
+                    new HouseServiceImplement().display();
+                    break;
+                case 3:
+                    new RoomServiceImplement().display();
+                    break;
+                case 4:
+                    FacilityController.facilityManagement();
+                default:break;
+            }
+        }
     }
 
     @Override
@@ -48,7 +60,7 @@ public class FacilityServiceImplement implements FacilityService {
                     new RoomServiceImplement().add();
                     break;
                 case 4:
-                    System.exit(4);
+                    FacilityController.facilityManagement();
                 default:break;
             }
         }
@@ -57,7 +69,28 @@ public class FacilityServiceImplement implements FacilityService {
 
     @Override
     public void edit() {
-
+        int choice = 0;
+        while (choice!=4) {
+            System.out.println("1.Edit Villa");
+            System.out.println("2.Edit House");
+            System.out.println("3.Edit Room");
+            System.out.println("4.Exit");
+            choice = new Choice().choiceInteger();
+            switch (choice){
+                case 1:
+                    new VillaServiceImplement().edit();
+                    break;
+                case 2:
+                    new HouseServiceImplement().edit();
+                    break;
+                case 3:
+                    new RoomServiceImplement().edit();
+                    break;
+                case 4:
+                    FacilityController.facilityManagement();
+                default:break;
+            }
+        }
     }
 
     public void maintenance() {

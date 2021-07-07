@@ -13,11 +13,10 @@ import java.util.Scanner;
 public class HouseServiceImplement implements HouseService {
     public static Scanner input = new Scanner(System.in);
     private static final String HOUSE_FILE_PATH = "src\\_case_Study\\data\\house.csv";
-    private static ReadAndWriteFile<House> houseReadAndWriteFile = new ReadAndWriteFile<>();
     private static Map<House,Integer> houseIntegerMap =new LinkedHashMap<>();
     @Override
     public Map<House, Integer> readDataHouse() {
-        houseIntegerMap = houseReadAndWriteFile.readMapData(HOUSE_FILE_PATH);
+        houseIntegerMap = new ReadAndWriteFile<House>().readMapData(HOUSE_FILE_PATH);
         return houseIntegerMap;
     }
 
@@ -29,7 +28,6 @@ public class HouseServiceImplement implements HouseService {
 
     @Override
     public void add() {
-        new HouseServiceImplement().readDataHouse();
         boolean checkName = false;
         String name = null;
         while (!checkName ){
@@ -57,7 +55,7 @@ public class HouseServiceImplement implements HouseService {
             area = Integer.parseInt(input.nextLine());
             if (area<=30){
                 System.out.println("Diện tích phải lớn hơn 30 m2");
-                break;
+                checkArea = false;
             }else {
                 checkArea = true;
             }
@@ -70,7 +68,7 @@ public class HouseServiceImplement implements HouseService {
             cost = Integer.parseInt(input.nextLine());
             if (cost<=0){
                 System.out.println("Chi phí thuê phòng phải lớn hơn 0");
-                break;
+                checkCost = false;
             }else {
                 checkCost = true;
             }
@@ -83,22 +81,32 @@ public class HouseServiceImplement implements HouseService {
             maximumPeople = Integer.parseInt(input.nextLine());
             if (maximumPeople<=0||maximumPeople>20){
                 System.out.println("số người thuê phòng phải nằm trong khoảng 1 đến 20 người");
-                break;
+                checkMaximumPeople = false;
             }else {
                 checkMaximumPeople = true;
             }
         }
 
         String typeOfRent = null;
-        while (!new CheckInputService().checkTypeOfRent(typeOfRent) ){
-            System.out.println("Nhập kiểu thuê theo định dạng HOU-YYYY, YYYY là các số từ 0-9");
+        boolean checkOfRent = false;
+        while (!checkOfRent){
+            System.out.println("Nhập kiểu thuê theo định dạng XXX-YYYY, với YYYY là các số từ 0-9");
             typeOfRent = input.nextLine();
+            checkOfRent = new CheckInputService().checkTypeOfRent(typeOfRent);
+            if (!checkOfRent){
+                System.out.println("Kiểu thuê không đúng định dạng");
+            }
         }
 
         String standardOfRent = null;
-        while (!new CheckInputService().checkStandardHouse(standardOfRent) ){
-            System.out.println("Nhập tiêu chuẩn thuê theo định dạng STHO-YYYY, YYYY là các số từ 0-9");
-           standardOfRent = input.nextLine();
+        boolean checkStandard = false;
+        while (!checkStandard){
+            System.out.println("Nhập tiêu chuẩn theo định dạng STHO-YYYY, với YYYY là các số từ 0-9");
+            standardOfRent = input.nextLine();
+            checkStandard = new CheckInputService().checkStandardHouse(standardOfRent);
+            if (!checkStandard){
+                System.out.println("Tiêu chuẩn không đúng định dạng");
+            }
         }
 
         boolean checkFloor = false;
@@ -108,14 +116,14 @@ public class HouseServiceImplement implements HouseService {
             floor = Integer.parseInt(input.nextLine());
             if (floor<=0){
                 System.out.println("số tầng thuê phải lớn hơn 0");
-                break;
+                checkFloor=false;
             }else {
                 checkFloor = true;
             }
         }
         House newHouse = new House(name,area,cost,maximumPeople,typeOfRent,standardOfRent,floor);
         houseIntegerMap.put(newHouse,0);
-        houseReadAndWriteFile.writeFile(HOUSE_FILE_PATH,houseIntegerMap);
+        new ReadAndWriteFile<House>().writeMapData(HOUSE_FILE_PATH,houseIntegerMap);
     }
 
 
@@ -186,7 +194,7 @@ public class HouseServiceImplement implements HouseService {
                         case 4: {
                             boolean checkTypeOfRent = false;
                             while (!checkTypeOfRent) {
-                                System.out.println(" Nhập số người thuê mới");
+                                System.out.println(" Nhập kiểu thuê mới");
                                 newTypeOfRent = input.nextLine();
                                 checkTypeOfRent = new CheckInputService().checkTypeOfRent(newTypeOfRent);
                             }
@@ -215,7 +223,7 @@ public class HouseServiceImplement implements HouseService {
                             break;
                         }
                         case 7:
-                            System.exit(7);
+                            new FacilityServiceImplement().edit();
                             break;
                     }
                 }
@@ -226,9 +234,18 @@ public class HouseServiceImplement implements HouseService {
                 break;
             }
         }
-        houseReadAndWriteFile.clearFile(HOUSE_FILE_PATH);
-        houseReadAndWriteFile.writeFile(HOUSE_FILE_PATH, houseIntegerMap);
+        new ReadAndWriteFile<>().clearFile(HOUSE_FILE_PATH);
+        new ReadAndWriteFile<House>().writeMapData(HOUSE_FILE_PATH,houseIntegerMap);
     }
+
+    @Override
+    public void display() {
+        new HouseServiceImplement().readData();
+        for (Map.Entry<House,Integer>entry: houseIntegerMap.entrySet()){
+            System.out.println(entry.getKey()+" "+entry.getValue());
+        }
+    }
+
     @Override
     public void updateData(String data) {
 
