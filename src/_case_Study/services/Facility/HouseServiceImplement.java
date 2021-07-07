@@ -223,15 +223,16 @@ public class HouseServiceImplement implements HouseService {
                             break;
                         }
                         case 7:
+                            House editHouse = new House(editName, newArea, newCost, newMaxNumsPeople, newTypeOfRent, newStandardOfRent, newFloor);
+                            int value = houseIntegerMap.get(house);
+                            houseIntegerMap.remove(house);
+                            houseIntegerMap.put(editHouse, value);
                             new FacilityServiceImplement().edit();
                             break;
                     }
                 }
-                House editHouse = new House(editName, newArea, newCost, newMaxNumsPeople, newTypeOfRent, newStandardOfRent, newFloor);
-                int value = houseIntegerMap.get(house);
-                houseIntegerMap.remove(house);
-                houseIntegerMap.put(editHouse, value);
-                break;
+
+
             }
         }
         new ReadAndWriteFile<>().clearFile(HOUSE_FILE_PATH);
@@ -240,7 +241,6 @@ public class HouseServiceImplement implements HouseService {
 
     @Override
     public void display() {
-        new HouseServiceImplement().readData();
         for (Map.Entry<House,Integer>entry: houseIntegerMap.entrySet()){
             System.out.println(entry.getKey()+" "+entry.getValue());
         }

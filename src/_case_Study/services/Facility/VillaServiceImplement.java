@@ -134,8 +134,6 @@ public class VillaServiceImplement implements VillaService{
                 checkFloor = true;
             }
         }
-
-
         Villa newVilla = new Villa(name,area,cost,maximumPeople,typeOfRent,standardOfRent,areaOfPool,floor);
         villaIntegerMap.put(newVilla,0);
         new ReadAndWriteFile<Villa>().writeMapData(VILLA_FILE_PATH, villaIntegerMap);
@@ -155,15 +153,15 @@ public class VillaServiceImplement implements VillaService{
         }
         for (Villa villa : villaIntegerMap.keySet()) {
             if (villa.getName().equals(editName)) {
-                boolean checkEdit = true;
-                float newArea = 0;
+                float newArea = villa.getArea();
                 float newCost = villa.getCost();
                 int newMaxNumsPeople = villa.getMaximumPeople();
                 String newTypeOfRent = villa.getRentalType();
                 String newStandardOfRent = villa.getStandard();
                 float newAreaOfPool = villa.getAreaOfPool();
                 int newFloor = villa.getNumberOfFlour();
-                while (checkEdit) {
+                int choice = 0;
+                while (choice!=8) {
                     System.out.println("Nhập thuộc tính muốn thay đổi");
                     System.out.println("1. Diện tích");
                     System.out.println("2. Chi phí thuê");
@@ -173,7 +171,7 @@ public class VillaServiceImplement implements VillaService{
                     System.out.println("6. Diện tích bể bơi");
                     System.out.println("7. Số tầng thuê");
                     System.out.println("8.Kết thúc chỉnh sửa");
-                    Integer choice = new Choice().choiceInteger();
+                    choice = new Choice().choiceInteger();
                     switch (choice) {
                         case 1: {
                             boolean checkArea = true;
@@ -248,21 +246,22 @@ public class VillaServiceImplement implements VillaService{
                                     checkFloor = false;
                                 }
                             }
-                            villa.setNumberOfFlour(newFloor);
                             break;
                         }
                         case 8: {
+                            Villa editVilla = new Villa(editName, newArea, newCost, newMaxNumsPeople, newTypeOfRent, newStandardOfRent,newAreaOfPool,newFloor);
+                            int value = villaIntegerMap.get(villa);
+                            villaIntegerMap.remove(villa);
+                            villaIntegerMap.put(editVilla, value);
                             new FacilityServiceImplement().edit();
+                        }
+                        default:{
                             break;
                         }
                     }
                 }
-                Villa editVilla = new Villa(editName, newArea, newCost, newMaxNumsPeople, newTypeOfRent, newStandardOfRent,newAreaOfPool,newFloor);
 
-                int value = villaIntegerMap.get(villa);
-                villaIntegerMap.remove(villa);
-                villaIntegerMap.put(editVilla, value);
-                break;
+
             }
         }
         new ReadAndWriteFile<>().clearFile(VILLA_FILE_PATH);
@@ -271,7 +270,6 @@ public class VillaServiceImplement implements VillaService{
 
     @Override
     public void display() {
-        villaIntegerMap = new VillaServiceImplement().readDataVilla();
         for (Map.Entry<Villa,Integer>entry: villaIntegerMap.entrySet()){
             System.out.println(entry.getKey()+" - "+entry.getValue());
         }

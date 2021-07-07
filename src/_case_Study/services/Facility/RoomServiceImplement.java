@@ -186,15 +186,14 @@ public class RoomServiceImplement implements RoomService {
                         }
 
                         case 6:
+                            Room editRoom = new Room(editName, newArea, newCost, newMaxNumsPeople, newTypeOfRent, newFreeService);
+                            int value = roomIntegerMap.get(room);
+                            roomIntegerMap.remove(room);
+                            roomIntegerMap.put(editRoom, value);
                             new FacilityServiceImplement().edit();
                             break;
                     }
                 }
-                Room editRoom = new Room(editName, newArea, newCost, newMaxNumsPeople, newTypeOfRent, newFreeService);
-                int value = roomIntegerMap.get(room);
-                roomIntegerMap.remove(room);
-                roomIntegerMap.put(editRoom, value);
-                break;
             }
         }
         new ReadAndWriteFile<>().clearFile(ROOM_FILE_PATH);
@@ -203,7 +202,6 @@ public class RoomServiceImplement implements RoomService {
 
     @Override
     public void display() {
-        new RoomServiceImplement().readData();
         for (Map.Entry<Room,Integer>entry: roomIntegerMap.entrySet()){
             System.out.println(entry.getKey()+" "+entry.getValue());
         }
