@@ -3,6 +3,7 @@ package _case_Study.services.Facility;
 import _case_Study.Check.CheckInputService;
 import _case_Study.Exception.Choice;
 import _case_Study.models.House;
+import _case_Study.models.Room;
 import _case_Study.models.Villa;
 import _case_Study.utils.ReadAndWriteFile;
 
@@ -289,5 +290,23 @@ public class VillaServiceImplement implements VillaService{
     @Override
     public void displayMaintenance() {
 
+    }
+    public String checkDataBooking() {
+        new VillaServiceImplement().readDataVilla();
+        String id = null;
+        boolean checkId = false;
+        while (!checkId) {
+            System.out.println("Nhập tên dịch vụ");
+            id = input.nextLine();
+            for (Villa element : villaIntegerMap.keySet()) {
+                if (element.getName().equals(id) && villaIntegerMap.get(element) < 5) {
+                    checkId = new CheckInputService().checkVilla(id);
+                }
+            }
+            if (!checkId) {
+                System.out.println(id + " khong co trong danh sach hoac dang trong qua trinh bao trì!!!");
+            }
+        }
+        return id;
     }
 }

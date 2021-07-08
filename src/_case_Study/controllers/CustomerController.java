@@ -1,13 +1,13 @@
 package _case_Study.controllers;
 
-import _case_Study.services.Customer.CustomerServiceImplement;
+import _case_Study.services.Customer.BookingServiceImplement;
 
 import java.util.Scanner;
 
 public class CustomerController {
     public static Scanner input = new Scanner(System.in);
     public static void customerManagement(){
-        CustomerServiceImplement customerServiceImplement = new CustomerServiceImplement();
+        BookingServiceImplement customerServiceImplement = new BookingServiceImplement();
         int choice;
         do {
             System.out.println("----Customer Management----");

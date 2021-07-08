@@ -222,4 +222,22 @@ public class RoomServiceImplement implements RoomService {
     public void displayMaintenance() {
 
     }
+    public String checkDataBooking() {
+        new RoomServiceImplement().readDataRoom();
+        String id = null;
+        boolean checkId = false;
+        while (!checkId) {
+            System.out.println("Nhập tên dịch vụ");
+            id = input.nextLine();
+            for (Room element : roomIntegerMap.keySet()) {
+                if (element.getName().equals(id) && roomIntegerMap.get(element) < 5) {
+                    checkId = new CheckInputService().checkRoom(id);
+                }
+            }
+            if (!checkId) {
+                System.out.println(id + " khong co trong danh sach hoac dang trong qua trinh bao trì!!!");
+            }
+        }
+        return id;
+    }
 }

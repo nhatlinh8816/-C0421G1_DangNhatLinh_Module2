@@ -1,13 +1,10 @@
 package _case_Study.utils;
 
-import _case_Study.models.Employee;
-import _case_Study.models.Person;
+import _case_Study.models.Booking;
+import _case_Study.services.Booking.BookingComparatorByDate;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class ReadAndWriteFile<E extends Object> {
     public   <E> void writeFile(String pathFile, E line){
@@ -79,6 +76,32 @@ public class ReadAndWriteFile<E extends Object> {
             FileOutputStream outputStream = new FileOutputStream(pathFile);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
             objectOutputStream.writeObject(null);
+            objectOutputStream.close();
+            outputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public Set<Booking> readTreeSet(String path) {
+        Set<Booking> bookings = new TreeSet<>(new BookingComparatorByDate());
+        try {
+            FileInputStream fileInputStream = new FileInputStream(path);
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            bookings = (Set<Booking>) objectInputStream.readObject();
+            objectInputStream.close();
+            fileInputStream.close();
+        } catch (ClassNotFoundException | IOException e) {
+            System.out.println(" data null");
+        }
+        return bookings;
+    }
+    public void writeTreeSet(Set<Booking> bookings, String path) {
+        try {
+            FileOutputStream outputStream = new FileOutputStream(path);
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
+            objectOutputStream.writeObject(bookings);
             objectOutputStream.close();
             outputStream.close();
         } catch (FileNotFoundException e) {

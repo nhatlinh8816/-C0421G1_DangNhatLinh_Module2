@@ -130,7 +130,7 @@ public class HouseServiceImplement implements HouseService {
 
     @Override
     public void edit() {
-        new HouseServiceImplement().readData();
+        new HouseServiceImplement().readDataHouse();
         boolean check = false;
         String editName = null;
         while (!check) {
@@ -259,5 +259,23 @@ public class HouseServiceImplement implements HouseService {
     @Override
     public void displayMaintenance() {
 
+    }
+    public String checkDataBooking() {
+        new HouseServiceImplement().readDataHouse();
+        String id = null;
+        boolean checkId = false;
+        while (!checkId) {
+            System.out.println("Nhập tên dịch vụ");
+            id = input.nextLine();
+            for (House element : houseIntegerMap.keySet()) {
+                if (element.getName().equals(id) && houseIntegerMap.get(element) < 5) {
+                    checkId = new CheckInputService().checkHouse(id);
+                }
+            }
+            if (!checkId) {
+                System.out.println(id + " khong co trong danh sach hoac dang trong qua trinh bao trì!!!");
+            }
+        }
+        return id;
     }
 }

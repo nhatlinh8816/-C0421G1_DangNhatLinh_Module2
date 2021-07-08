@@ -4,8 +4,9 @@ public class Booking {
     private String codeBooking;
     private String checkInDate;
     private String checkOutDate;
-    private String customer;
+    private int customer;
     private String nameFacility;
+    private String typeOfRent;
 
     public String getCodeBooking() {
         return codeBooking;
@@ -31,11 +32,11 @@ public class Booking {
         this.checkOutDate = checkOutDate;
     }
 
-    public String getCustomer() {
+    public int getCustomer() {
         return customer;
     }
 
-    public void setCustomer(String customer) {
+    public void setCustomer(int customer) {
         this.customer = customer;
     }
 
@@ -47,11 +48,20 @@ public class Booking {
         this.nameFacility = nameFacility;
     }
 
-    public Booking(String codeBooking, String checkInDate, String checkOutDate, String customer, String nameFacility) {
+    public String getTypeOfRent() {
+        return typeOfRent;
+    }
+
+    public void setTypeOfRent(String typeOfRent) {
+        this.typeOfRent = typeOfRent;
+    }
+
+    public Booking(String codeBooking, String checkInDate, String checkOutDate, int customer, String nameFacility, String typeOfRent) {
         this.codeBooking = codeBooking;
         this.checkInDate = checkInDate;
         this.checkOutDate = checkOutDate;
         this.customer = customer;
         this.nameFacility = nameFacility;
+        this.typeOfRent = typeOfRent;
     }
 }

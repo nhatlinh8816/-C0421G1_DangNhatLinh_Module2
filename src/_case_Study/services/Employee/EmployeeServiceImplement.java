@@ -1,7 +1,6 @@
 package _case_Study.services.Employee;
 
 import _case_Study.models.Employee;
-import _case_Study.services.Employee.EmployeeService;
 import _case_Study.utils.ReadAndWriteFile;
 
 import java.util.ArrayList;
@@ -27,10 +26,10 @@ public class EmployeeServiceImplement implements EmployeeService {
 
 
     public void display() {
+        new EmployeeServiceImplement().readData();
         if (listEmployee.size()==0){
             System.out.println("Không có nhân viên nào");
         }else {
-            new EmployeeServiceImplement().readData();
             for (Employee element: listEmployee){
                 System.out.println(element.toString());
             }

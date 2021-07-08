@@ -1,14 +1,14 @@
 package _case_Study.services.Customer;
 
+import _case_Study.Exception.Choice;
 import _case_Study.models.Customer;
-import _case_Study.models.Employee;
 import _case_Study.utils.ReadAndWriteFile;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CustomerServiceImplement implements CustomerService {
+public class BookingServiceImplement implements CustomerService {
     private static final String CUSTOMER_FILE_PATH = "src\\_case_Study\\data\\customer.csv";
     List<Customer> customerList = new LinkedList<>();
     static Scanner input = new Scanner(System.in);
@@ -22,14 +22,14 @@ public class CustomerServiceImplement implements CustomerService {
 
     @Override
     public List readData() {
-        customerList = new ReadAndWriteFile<Employee>().readFile(CUSTOMER_FILE_PATH);
+        customerList = new ReadAndWriteFile<Customer>().readFile(CUSTOMER_FILE_PATH);
         return customerList;
     }
     public void display() {
         if (customerList.size() == 0) {
             System.out.println("Không có khách hàng nào");
         } else {
-            new CustomerServiceImplement().readData();
+            new BookingServiceImplement().readData();
             for (Customer element : customerList) {
                 System.out.println(element.toString());
             }
@@ -101,6 +101,26 @@ public class CustomerServiceImplement implements CustomerService {
                 System.out.println("No customer found");
             }
         }
+    }
+    public Integer CheckIdBook() {
+        new BookingServiceImplement().readData();
+        new BookingServiceImplement().display();
+        boolean check = false;
+        int id = 0;
+        while (!check) {
+            System.out.println(" Nhập mã Customer ");
+            id = new Choice().choiceInteger();
+            for (int i = 0; i < customerList.size(); i++) {
+                if (customerList.get(i).getIdCustomer() == id) {
+                    check = true;
+                    break;
+                }
+            }
+            if(!check){
+                System.out.println("Nhập lại theo danh sách ");
+            }
+        }
+        return id;
     }
 
 
